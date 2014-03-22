@@ -18,6 +18,16 @@
     }
   }
 }
+
+.command-mode-input:not(.hidden-input) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: inherit;
+}
+
 .command-mode-input .editor.mini {
   background-color: inherit;
   border: none;
@@ -26,13 +36,13 @@
   color: #aaaaaa;
   text-shadow: 0 -1px 0 #333333;
   // see also the commandModeInputViewFontSize setting.
-  line-height: 1.28;
+  //line-height: 1.28;
   cursor: default;
   white-space: nowrap;
   padding-left: 10px;
 }
 
-.command-mode-input .hidden-input {
+.command-mode-input.hidden-input {
   padding: 0;
   border: 0;
   position: absolute;

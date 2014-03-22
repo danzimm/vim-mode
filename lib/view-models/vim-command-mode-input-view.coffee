@@ -15,10 +15,13 @@ class VimCommandModeInputView extends View
       @editorContainer.addClass opts.class
 
     if opts.hidden?
-      @editorContainer.addClass 'hidden-input'
+      @.addClass 'hidden-input'
 
     if opts.singleChar?
       @singleChar = true
+
+    if opts.before?
+      @editor.prepend("<div class='vim-mode-prefix'>#{opts.before}</div>")
 
     unless atom.workspaceView?
       # We're in test mode. Don't append to anything, just initialize.
@@ -29,7 +32,7 @@ class VimCommandModeInputView extends View
     statusBar = atom.workspaceView.find('.status-bar')
 
     if statusBar.length > 0
-      @.insertBefore(statusBar)
+      @.appendTo(statusBar)
     else
       atom.workspace.getActivePane().append(@)
 

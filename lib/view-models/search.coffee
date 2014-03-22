@@ -4,7 +4,7 @@ ViewModel = require './view-model'
 module.exports =
 class SearchViewModel extends ViewModel
   constructor: (@searchMotion) ->
-    super(@searchMotion, class: 'search')
+    super(@searchMotion, class: 'search', before: '/')
     @historyIndex = -1
     @editor = @searchMotion.editor
 
@@ -33,6 +33,7 @@ class SearchViewModel extends ViewModel
 
   reversed: =>
     @initiallyReversed = @reverse = true
+    @view.editor.find('.vim-mode-prefix').html('?')
 
   confirm: (view) =>
     @vimState.pushSearchHistory(@)
